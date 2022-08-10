@@ -1,21 +1,28 @@
+const { maxSatisfying } = require("semver");
+
 class GuessingGame {
-    constructor() {}
+  constructor() {}
 
-    setRange(min, max) {
+  start;
+  end;
 
-    }
+  setRange(min, max) {
+    this.start = min;
+    this.end = max;
+  }
 
-    guess() {
+  guess() {
+    this.middle = Math.round(this.start + (this.end - this.start) / 2);
+    return this.middle;
+  }
 
-    }
+  lower() {
+    this.end = this.middle;
+  }
 
-    lower() {
-
-    }
-
-    greater() {
-
-    }
+  greater() {
+    this.start = this.middle;
+  }
 }
 
 module.exports = GuessingGame;
